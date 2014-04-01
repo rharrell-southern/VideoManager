@@ -1,0 +1,132 @@
+/* VIDEO ACCESS INTERFACE */
+body {
+	background-color:#666;
+	font-family:Verdana, Geneva, sans-serif;
+}
+a {
+	text-decoration:none;
+	color:#060;
+}
+#container {
+	background-color:#FFF;
+	width:800px; 
+	margin:35px auto;
+	box-shadow:0px 0px 20px 0px #333333;
+}
+#login {
+	padding:50px 50px;
+}
+#playlist h2 {
+	padding:10px 35px;
+	margin:0px;
+	background-color:#CCC;
+	text-shadow:1px 1px 4px #999;
+}
+#playlist #items {
+	padding:10px 0px 0px 0px;
+}
+#playlist #items ul {
+	list-style:none;
+	padding:0px;
+}
+#playlist #items ul li {
+	padding: 4px 40px;
+}
+#playlist #items ul li:nth-child(odd) {
+	background-color:#EAEAEA;
+}
+#copyright {
+	font-size:10px;
+	padding:25px;
+	background-color:#F5F5F5;
+}
+
+/* ADMIN INTERFACE */
+
+#tableContainer {
+
+}
+
+#videos{
+	width: 85%;
+	margin: 0 auto;
+	border: 1px dotted black;
+}
+
+#videos tr{
+	cursor: pointer;
+}
+
+thead tr{
+	color:#FFF;
+	background-color:#333;
+	border-bottom: 1px dotted #000 !important;
+}
+tbody tr:nth-child(even) {
+	background-color: #EEE;
+}
+
+.input{
+	width: 100%;
+}
+
+.inputTD{
+	width: 120px;
+}
+
+.delete, .deleteNew, .deleteDup{
+	padding: 2px 5px;
+	border-radius: 5px;
+	background-color: #CC0000;
+	width: 12px;
+	font-weight: bold;
+	cursor: pointer;
+	text-align:center;
+}
+
+.save, .saveNew, .saveTitle{
+	padding: 2px 5px;
+	border-radius: 5px;
+	background-color: #33CC66;
+	width: 12px;
+	font-weight: bold;
+	cursor: pointer;
+	text-align:center;
+}
+
+.duplicateEntry{
+	padding: 2px;
+	border-radius: 3px;
+	background-color: #3683B3;
+	width: 12px;
+	font-weight: bold;
+	cursor: pointer;
+	text-align:center;
+	padding-top: 7px;
+}
+
+#spacer{
+	height: 7px;
+}
+
+#editRow{
+	display:none;
+
+}
+
+#addRow{
+	display:none;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }

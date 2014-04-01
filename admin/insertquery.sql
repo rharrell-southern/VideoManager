@@ -1,0 +1,1 @@
+INSERT INTO Sessions (ID, videoID, startTime, endTime) VALUES ("2", "1", "2014-02-09 00:00:00", "2014-02-15 23:59:59");

@@ -1,0 +1,16 @@
+add/remove rows
+	-> check if course number and file path are the same, IF SO, prompt to add new session instead of row
+
+
+-----------------------------------------
+FOR LATER:
+
+Sorting - > http://tablesorter.com/docs/
+
+search/Filter by course/video name
+
+
+------------------------------------------
+ON DUPLICATE:
+
+ensure course number has changed, to ensure original entry is not overwritten
