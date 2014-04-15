@@ -106,6 +106,37 @@ function updateSession($vid, $sid, $start, $end) {
 	mysql_close($link);
 }
 
+function addNewCourse($vdata){
+	global $DBusername, $DBpassword, $DBdatabase, $auth, $link;
+
+	//Attempt to connect to DB
+	if ($link) {
+		$db_selected = mysql_select_db($DBdatabase, $link);
+		if ($db_selected) {
+
+			$insertQuery = mysql_query("INSERT INTO Video (course, title, path) VALUES ('$vdata[0]', '$vdata[1]', '$vdata[2]')") or die(mysql_error());
+
+			if($insertQuery){
+				//Successful insertion, get ID for inserting sessions
+				$selQuery = mysql_query("SELECT MAX(ID) as id FROM Video") or die(mysql_error());
+				if($selQuery){
+					$result = mysql_fetch_assoc($selQuery);
+					return $result['id'];
+				}else{
+					return "false";
+				}
+			}else{
+				//Unsuccessful deletion
+				return "false";
+			}
+
+		}
+	}
+
+	//close link
+	mysql_close($link);
+}
+
 function updateCourse($ID, $CN, $VT, $FP) {
 	//echo($user . ":" . $pass);
 
@@ -133,6 +164,29 @@ function updateCourse($ID, $CN, $VT, $FP) {
 	mysql_close($link);
 }
 
+function addMultipleSessions($vid, $data){
+	global $DBusername, $DBpassword, $DBdatabase, $auth, $link;
+
+	//Attempt to connect to DB
+	if ($link) {
+		$db_selected = mysql_select_db($DBdatabase, $link);
+		if ($db_selected) {
+
+			//loop through all sessions
+			for($i = 0; $i < sizeof($data); $i++){
+				$query = mysql_query("INSERT INTO Sessions (videoID, startTime, endTime) VALUES ('$vid', '" . $data[$i][0] . "', '" . $data[$i][1] . "')") or die(mysql_error());
+			}
+
+			//return true, because if query failed, it will return mysql_error() within the die method above
+			return true;
+		}
+	}
+
+	//close link
+	mysql_close($link);
+
+}
+
 if($_SESSION['isLoggedIn']) {
 
 	if ($_POST) {
@@ -145,6 +199,10 @@ if($_SESSION['isLoggedIn']) {
 			updateSession($_POST['vid'], $_POST['sid'], $_POST['start'], $_POST['end']);
 		}else if($_POST['type'] == 'updateCourse'){
 			updateCourse($_POST['ID'], $_POST['CN'], $_POST['VT'], $_POST['FP']);
+		}else if($_POST['type'] == 'addDuplicateRow'){
+			$vid = addNewCourse($_POST['vidData']);
+			$status = addMultipleSessions($vid, $_POST['sessData']);
+			echo($status);
 		}
 	}
 }

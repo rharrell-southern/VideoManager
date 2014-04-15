@@ -48,6 +48,7 @@ session_start();
                   </table>\
 \
                   <div id=\"editRow\">\
+                  <div id=\"editDupRow\">\
                   </div>\
             </div>";
         $(function() {
@@ -119,6 +120,10 @@ session_start();
             index = findIndex(VID);
 
             copyEntry = data[index].slice(0);
+            copyEntry.splice(4, 1);
+            var copyEntryArr = data[index][4].slice(0);
+
+            copyEntry.splice(4, 0, copyEntryArr);
 
             console.log("copy: ", copyEntry);
 
@@ -129,7 +134,7 @@ session_start();
             populateRow(index, true);
 
             //launch dialog
-            $( "#editRow" ).dialog( "open" );
+            $( "#editDupRow" ).dialog( "open" );
  
             //TODO: create and display modal with new entry and all related sessions
             
@@ -182,31 +187,12 @@ session_start();
           });
 
           //delete row in editing duplicate (before saved)
-          $("body").on("click","#editRowData .deleteDup", function() {
+          $("body").on("click","#editDupRowData .deleteDup", function() {
 
-            if(confirm("Are you sure you want to delete this session?")){
-              //thistr
+             if(confirm("Are you sure you want to delete this session?")){
               var thistr = $(this).closest('tr');
-
-              //get session's id
-              var SID = $(this).closest('tr').find('td:first').text();
-
-              //filter td text down to just the id
-              SID = SID.split(" ");
-              SID = SID[2];
-
-
-              //get innerindex of data array
-              var innerIndex = findInnerIndexDup(SID, index, copyEntry);
-
-                  //update data array, and current row modal table
-                  //copyEntry[4].splice(innerIndex, 1);
-                  console.log("new copy array: ", copyEntry);
-                  console.log("new data array: ", data);
-
-                  thistr.remove();
-
-              }
+              thistr.remove();
+            }
           });
 
           //remove temporary session that hasn't been saved
@@ -414,54 +400,199 @@ session_start();
 
         }
         function populateRow(index, duplicate) {
+
+          console.log("index:", data[index]);
           //create and populate table with session information, actual sessions added dynamically following this
           //if duplicate, edit row will be different
           if(!duplicate){
             $("#editRow").html("<table id='editRowData' border='1' cellpadding='7' cellspacing='0'><tbody><tr><td><input class='inputTD' id='CN" + index + "' type='text' value='" + data[index][1] +
              "'></td><td><input class='input' type='text' id='VT" + index + "' value='" + data[index][2] + "'></td><td><input class='input' type='text' id='FP" + index + "' value='" + data[index][3] + "'></td><td><span class='saveTitle'>Save</span></td></tr></tbody></table>");
-          }else{
-            $("#editRow").html("<table id='editRowData' border='1' cellpadding='7' cellspacing='0'><tbody><tr><td><input class='inputTD' id='CN" + index + "' type='text' value='" + data[index][1] +
-             "'></td><td><input class='input' type='text' id='VT" + index + "' value='" + data[index][2] + "'></td><td><input class='input' type='text' id='FP" + index + "' value='" + data[index][3] + "'></td><td></td></tr></tbody></table>");
-          }
-          var k = 1;
-          for(var i = 0; i < data[index][4].length; i ++){
-            if(!duplicate){
+          
+            var k = 1;
+            for(var i = 0; i < data[index][4].length; i ++){
               $('#editRowData > tbody:last').append('<tr><td>Session ID: ' + data[index][4][i][0] + '</td><td> <input class="inputTD" id="date' + k + '0" type="text" readonly="readonly"><input class="inputTD" id="time' + k + '0" type="text"> </td><td> <input class="inputTD" id="date' + k + '1" type="text" readonly="readonly"> <input class="inputTD" id="time' + k + '1" type="text"> </td><td class = "edit"> <span class="save">Save</span> <span class = "delete">X</span> </td></tr>');
-            }else{
-              $('#editRowData > tbody:last').append('<tr><td>Session ID: ' + data[index][4][i][0] + '</td><td> <input class="inputTD" id="date' + k + '0" type="text" readonly="readonly"><input class="inputTD" id="time' + k + '0" type="text"> </td><td> <input class="inputTD" id="date' + k + '1" type="text" readonly="readonly"> <input class="inputTD" id="time' + k + '1" type="text"> </td><td class = "edit"> <span class = "deleteDup">X</span> </td></tr>');
+              
+              $('#date' + k + '0').datepicker();            
+              $('#date' + k + '1').datepicker();
+              $('#time' + k + '0').timepicker({ 'timeFormat': 'H:i' });
+              $('#time' + k + '1').timepicker({ 'timeFormat': 'H:i' });
+
+              //formulate date objects
+              //start date
+              var ts = data[index][4][i][1];
+              ts = ts.split(" ");
+              var date = ts[0];
+              var time = ts[1];
+
+              date = date.split("-");
+              time = time.split(":");
+
+              //end date
+              var ts1 = data[index][4][i][2];
+              ts1 = ts1.split(" ");
+              var date1 = ts1[0];
+              var time1 = ts1[1];
+
+              date1 = date1.split("-");
+              time1 = time1.split(":");
+
+              $('#date' + k + '0').datepicker('setDate', new Date(date[0], (date[1] -1 ), date[2]));
+              $('#date' + k + '1').datepicker('setDate', new Date(date1[0], (date1[1] -1 ), date1[2]));
+
+              $('#time' + k + '0').timepicker('setTime', new Date(date[0], (date[1] -1 ), date[2], time[0], time[1], time[2], 0));
+              $('#time' + k + '1').timepicker('setTime', new Date(date1[0], (date1[1]-1 ), date1[2], time1[0], time1[1], time1[2], 0));
+
+              k++;
             }
-            $('#date' + k + '0').datepicker();            
-            $('#date' + k + '1').datepicker();
-            $('#time' + k + '0').timepicker({ 'timeFormat': 'H:i' });
-            $('#time' + k + '1').timepicker({ 'timeFormat': 'H:i' });
+          }else{
+            $("#editDupRow").html("<table id='editDupRowData' border='1' cellpadding='7' cellspacing='0'><tbody><tr><td><input class='inputTD' id='CN" + index + "' type='text' value='" + data[index][1] +
+             "'></td><td><input class='input' type='text' id='VT" + index + "' value='" + data[index][2] + "'></td><td><input class='input' type='text' id='FP" + index + "' value='" + data[index][3] + "'></td><td></td></tr></tbody></table>");
 
-            //formulate date objects
-            //start date
-            var ts = data[index][4][i][1];
-            ts = ts.split(" ");
-            var date = ts[0];
-            var time = ts[1];
+            var k = 1;
+            for(var i = 0; i < data[index][4].length; i ++){
+              $('#editDupRowData > tbody:last').append('<tr><td>Session ID: ' + data[index][4][i][0] + '</td><td> <input class="inputTD" id="Ddate' + k + '0" type="text" readonly="readonly"><input class="inputTD" id="Dtime' + k + '0" type="text"> </td><td> <input class="inputTD" id="Ddate' + k + '1" type="text" readonly="readonly"> <input class="inputTD" id="Dtime' + k + '1" type="text"> </td><td class = "edit"> <span class = "deleteDup">X</span> </td></tr>');
+              
+              $('#Ddate' + k + '0').datepicker();            
+              $('#Ddate' + k + '1').datepicker();
+              $('#Dtime' + k + '0').timepicker({ 'timeFormat': 'H:i' });
+              $('#Dtime' + k + '1').timepicker({ 'timeFormat': 'H:i' });
 
-            date = date.split("-");
-            time = time.split(":");
+              //formulate date objects
+              //start date
+              var ts = data[index][4][i][1];
+              ts = ts.split(" ");
+              var date = ts[0];
+              var time = ts[1];
 
-            //end date
-            var ts1 = data[index][4][i][2];
-            ts1 = ts1.split(" ");
-            var date1 = ts1[0];
-            var time1 = ts1[1];
+              date = date.split("-");
+              time = time.split(":");
 
-            date1 = date1.split("-");
-            time1 = time1.split(":");
+              //end date
+              var ts1 = data[index][4][i][2];
+              ts1 = ts1.split(" ");
+              var date1 = ts1[0];
+              var time1 = ts1[1];
 
-            $('#date' + k + '0').datepicker('setDate', new Date(date[0], (date[1] -1 ), date[2]));
-            $('#date' + k + '1').datepicker('setDate', new Date(date1[0], (date1[1] -1 ), date1[2]));
+              date1 = date1.split("-");
+              time1 = time1.split(":");
 
-            $('#time' + k + '0').timepicker('setTime', new Date(date[0], (date[1] -1 ), date[2], time[0], time[1], time[2], 0));
-            $('#time' + k + '1').timepicker('setTime', new Date(date1[0], (date1[1]-1 ), date1[2], time1[0], time1[1], time1[2], 0));
+              $('#Ddate' + k + '0').datepicker('setDate', new Date(date[0], (date[1] -1 ), date[2]));
+              $('#Ddate' + k + '1').datepicker('setDate', new Date(date1[0], (date1[1] -1 ), date1[2]));
 
-            k++;
+              $('#Dtime' + k + '0').timepicker('setTime', new Date(date[0], (date[1] -1 ), date[2], time[0], time[1], time[2], 0));
+              $('#Dtime' + k + '1').timepicker('setTime', new Date(date1[0], (date1[1]-1 ), date1[2], time1[0], time1[1], time1[2], 0));
+
+              k++;
+            }
           }
+        }
+
+        function saveDuplicate(){
+          //process modal data
+          var dupData = [];
+          var isValid = true;
+
+          Date.prototype.valid = function() {
+            return isFinite(this);
+          }
+
+          //if not empty, store input values from table 
+          $('#editDupRowData > tbody  > tr > td > input').each(function() {
+            if($(this).val() != ""){
+              dupData.push($(this).val());
+            }else{
+              alert("One or more fields are empty. Please adjust accordingly.");
+              isValid = false;
+            }
+          });
+
+          var newCourse = dupData[0];
+          var newTitle = dupData[1];
+          var newVideo = dupData[2];
+          
+
+          //if input data
+          if(isValid){
+            //separate class info from session data
+            var classInfo = [dupData[0], dupData[1], dupData[2]];
+
+            dupData.splice(0, 3);
+
+            
+
+            var sessionData = [];
+            var rowCount = 0;
+
+            //formulate SQL and jQuery date objects
+            //SQL: "YYYY-MM-DD HH:MM:SS"
+            //JS: Date(year, month, day, hours, minutes, seconds, miliseconds)
+            for(var i = 0; i < dupData.length; i += 4){
+              //track row number
+              rowCount++;
+
+              //temp dates and times
+              var tmpD = dupData[i].split("/");
+              var tmpT = dupData[i+1].split(":");
+
+              var SQLStart = tmpD[2] + "-" + tmpD[0] + "-" + tmpD[1] + " " + tmpT[0] + ":" + tmpT[1] + ":00";
+              var jsStart = new Date(tmpD[2], tmpD[0] -1, tmpD[1], tmpT[0], tmpT[1], 0, 0);
+
+              tmpD = dupData[i+2].split("/");
+              tmpT = dupData[i+3].split(":");
+
+              var SQLEnd = tmpD[2] + "-" + tmpD[0] + "-" + tmpD[1] + " " + tmpT[0] + ":" + tmpT[1] + ":00";
+              var jsEnd = new Date(tmpD[2], tmpD[0] -1, tmpD[1], tmpT[0], tmpT[1], 0, 0);
+
+              //Storing data for SQL
+              sessionData.push([SQLStart, SQLEnd]);
+
+              //verify valid date objects, and are ordered correctly
+              if(jsStart.valid() == false || jsEnd == false){
+                alert("The specified dates and/or times in row #" + rowCount + " are invalid. Please adjust accordingly.");
+              }else if(jsStart > jsEnd || jsStart == jsEnd){
+                alert("The specified starting date and time in row #" + rowCount + " occurs after the specified ending date and time. Please adjust accordingly.");
+                isValid = false;
+                break;
+              }
+            }
+
+            console.log("data: ", isValid, sessionData);
+
+            //Save only if new course number, otherwise prompt to add session, not duplicate entry.
+            if(newCourse == data[index][1]){
+              if(newVideo == data[index][3]){
+                alert("There is an existing entry for this video under " + newCourse + ". Please add the necessary sessions under that entry instead.");
+                isValid = false;
+              }
+            }
+
+            //write to db if valid data
+            if(isValid){
+              var dataObject = {
+                type:     "addDuplicateRow",
+                vidData:  [newCourse, newTitle, newVideo],
+                sessData: sessionData
+              };
+
+              $.ajax({
+                type: "POST",
+                url: "editRecords.php",
+                cache: false,
+                data: dataObject,
+              }).done(function(status) {
+                if(status == 1){  
+                  //Reload page, bypassing cache to lazily update data array with the newly submitted data and auto generated IDs.
+                  alert("New entry successfully created!");
+                  location.reload(true);
+                }else{
+                  alert("New row could not be created!");
+                  console.log("Error: ", status);
+                }
+              });
+            }
+              
+          }
+
         }
     </script>
 </head>
@@ -521,6 +652,37 @@ if($postData) {
                 "Close": function() {
                   $( "#editRow" ).dialog( "close" );
                 }
+              }
+          });
+
+          $( "#editDupRow" ).dialog({
+              title: 'Duplicate Row',
+              autoOpen: false,
+              resizable: true,
+              height: 'auto',
+              width: 'auto',
+              show: { effect: 'drop', direction: "up" },
+              modal: true,
+              draggable: true,
+              buttons: {
+                "Add Session": function() {
+
+                  var lastindex = $('#editDupRowData').find('tr:last').index();
+
+                  console.log("newindex: ", lastindex);
+                  $('#editDupRowData > tbody:last').append('<tr><td>New Session: </td><td> <input class="inputTD" id="dateTmp' + (lastindex + 1) + '1" type="text" readonly="readonly"><input class="inputTD" id="timeTmp' + (lastindex + 1) + '1" type="text"> </td><td> <input class="inputTD" id="dateTmp' + (lastindex + 1) + '2" type="text" readonly="readonly"> <input class="inputTD" id="timeTmp' + (lastindex + 1) + '2" type="text"></td><td class = "edit"> <span class = "deleteNew">X</span> </td></tr>');
+
+                  $('#dateTmp' + (lastindex + 1) + '1').datepicker();            
+                  $('#dateTmp' + (lastindex + 1) + '2').datepicker();
+                  $('#timeTmp' + (lastindex + 1) + '1').timepicker({ 'timeFormat': 'H:i' });            
+                  $('#timeTmp' + (lastindex + 1) + '2').timepicker({ 'timeFormat': 'H:i' });
+                },
+                "Save": function() {
+                  saveDuplicate();
+                },
+                "Cancel": function() {
+                  $( "#editDupRow" ).dialog( "close" );
+                },
               }
           });
 
