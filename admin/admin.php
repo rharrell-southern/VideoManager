@@ -13,9 +13,14 @@ session_start();
     <script type="text/javascript" src="timepicker/jquery.timepicker.js"></script>
     <link rel="stylesheet" href="timepicker/jquery.timepicker.css">
 
+    <script type="text/javascript" src="tsort/jquery.tablesorter.js"></script> 
+    <link rel="stylesheet" href="tsort/themes/blue/style.css">
+    <link rel="stylesheet" href="tsort/docs/css/jq.css" type="text/css" media="print, projection, screen">
+
     <!-- Load page style -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="../style.css" type="text/css" media="screen" />
+
 
     <script type="text/javascript">
         var data = "";
@@ -23,7 +28,7 @@ session_start();
         var index = 0;
         var startHtml = "<div id=\"tableContainer\">\
 \
-              <table id=\"videos\" border=\"1\" cellpadding=\"7\" cellspacing=\"0\">\
+              <table class = \"tablesorter\" id=\"videos\" >\
                       <thead>\
                           <tr>\
                               <th>\
@@ -53,8 +58,10 @@ session_start();
                     <input type=\"text\" id=\"cnumber\" placeholder=\"Course Number\"> &nbsp &nbsp <input type=\"text\" id=\"vtitle\" placeholder=\"Video Title\"> &nbsp &nbsp <input type=\"text\" id=\"fpath\" placeholder=\"Filepath\">\
                   </div>\
             </div>";
-        $(function() {
 
+
+
+        $(function() {
           //Populate table and display row modal
           $("body").on("click","#tableContainer tr .classEntry", function() {
             //get video's id
@@ -454,7 +461,7 @@ session_start();
 
           //iterate through the first array, and populate data at the end of the table
           $.each(data, function(index, value){
-            $('#videos > tbody:last').append('<tr><td class="classEntry">' + value[0] + '</td><td class="classEntry">' + value[1] + '</td><td class="classEntry">' + value[2] + '</td><td class="classEntry">' + value[3] + '</td><td> <center><span class = "delete" title="Delete Entry" alt="Delete Entry">X</span><br /><div id="spacer"></div> <span class="duplicateEntry"><img src="../img/copy.png" title="Duplicate Entry" alt="Duplicate Entry" height="18" width="18"></span></center></tr>');
+            $('#videos > tbody:last').append('<tr><td class="classEntry">' + value[0] + '</td><td class="classEntry">' + value[1] + '</td><td class="classEntry">' + value[2] + '</td><td class="classEntry">' + value[3] + '</td><td> <center><span class = "delete" title="Delete Entry" alt="Delete Entry">X</span></div> <span class="duplicateEntry"><img src="../img/copy.png" title="Duplicate Entry" alt="Duplicate Entry" height="18" width="18"></span></center></tr>');
           });
 
           //Finally, append add field
@@ -830,7 +837,10 @@ if($postData) {
               }
           });
 
+          //populate table and make sortable
           populateTable();
+          $("#videos").tablesorter(); 
+
         }else{
           $("#container").html(" <div id='login'>\
             <h2>\

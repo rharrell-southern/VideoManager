@@ -42,29 +42,19 @@ a {
 }
 
 /* ADMIN INTERFACE */
+p {
+white-space:nowrap;
+}
 
 #tableContainer {
 
 }
 
-#videos{
-	width: 85%;
-	margin: 0 auto;
-	border: 1px dotted black;
-}
 
 #videos tr{
 	cursor: pointer;
 }
 
-thead tr{
-	color:#FFF;
-	background-color:#333;
-	border-bottom: 1px dotted #000 !important;
-}
-tbody tr:nth-child(even) {
-	background-color: #EEE;
-}
 
 .input{
 	width: 100%;
