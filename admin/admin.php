@@ -60,6 +60,7 @@ session_start();
 
             //update index for current videoid
             index = findIndex(VID);
+            alert(VID);
 
             //fetch row and session data and populate
             populateRow(index, false);
@@ -67,6 +68,7 @@ session_start();
             //launch dialog
             $( "#editRow" ).dialog( "open" );
           });
+
 
           //save course number, video title, filepath
           $("body").on("click","#editRowData .saveTitle", function() {
@@ -135,13 +137,44 @@ session_start();
 
             //launch dialog
             $( "#editDupRow" ).dialog( "open" );
- 
-            //TODO: create and display modal with new entry and all related sessions
-            
-
-            //TODO: write entry and all sessions to DB 
-            //alert("unimplemented!");
           });
+
+
+          //Delete video entry and subsequent session entries
+          $("body").on("click","#videos .delete", function(e) {
+
+            //get videoID
+            var VID = $(this).closest('tr').find('td:first').text();
+            console.log(VID);
+
+            //if confirm, delete db entries
+            if(confirm("Are you sure you want to delete this video entry? This action cannot be undone.")){
+
+              var dataObject = {
+                type: "deleteVideo",
+                vid: VID
+              };
+
+
+               $.ajax({
+                type: "POST",
+                url: "editRecords.php",
+                cache: false,
+                data: dataObject,
+              }).done(function(status) {
+                 if(status == 1){  
+                  //Reload page, bypassing local array to lazily update data array with the newly submitted data and auto generated IDs.
+                  location.reload(true);
+                }else{
+                  alert("Entry could not be deleted!");
+                  console.log("Error: ", status);
+                }
+
+              });
+            }
+
+          });
+
 
           //Remove specific session data
           $("body").on("click","#editRowData .delete", function() {
@@ -581,7 +614,7 @@ session_start();
                 data: dataObject,
               }).done(function(status) {
                 if(status == 1){  
-                  //Reload page, bypassing cache to lazily update data array with the newly submitted data and auto generated IDs.
+                  //Reload page, bypassing local array to lazily update data array with the newly submitted data and auto generated IDs.
                   alert("New entry successfully created!");
                   location.reload(true);
                 }else{

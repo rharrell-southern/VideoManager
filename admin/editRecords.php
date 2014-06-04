@@ -187,6 +187,29 @@ function addMultipleSessions($vid, $data){
 
 }
 
+function deleteVideoEntry($vid){
+	global $DBusername, $DBpassword, $DBdatabase, $auth, $link;
+
+	//Attempt to connect to DB
+	if ($link) {
+		$db_selected = mysql_select_db($DBdatabase, $link);
+		if ($db_selected) {
+
+			$querySession = mysql_query("DELETE FROM Sessions WHERE videoID='$vid'") or die(mysql_error());
+			$queryVideo = mysql_query("DELETE FROM Video WHERE ID='$vid'") or die(mysql_error());
+
+			if($querySession && $queryVideo){
+				//Successful deletion
+				echo(true);
+			}
+		}
+	}
+
+	//close link
+	mysql_close($link);
+}
+
+
 if($_SESSION['isLoggedIn']) {
 
 	if ($_POST) {
@@ -203,6 +226,8 @@ if($_SESSION['isLoggedIn']) {
 			$vid = addNewCourse($_POST['vidData']);
 			$status = addMultipleSessions($vid, $_POST['sessData']);
 			echo($status);
+		}else if($_POST['type'] == 'deleteVideo'){
+			deleteVideoEntry($_POST['vid']);
 		}
 	}
 }
