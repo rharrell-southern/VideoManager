@@ -228,6 +228,9 @@ if($_SESSION['isLoggedIn']) {
 			echo($status);
 		}else if($_POST['type'] == 'deleteVideo'){
 			deleteVideoEntry($_POST['vid']);
+		}else if($_POST['type'] == 'addVideo'){
+			$vid = addNewCourse($_POST['vidData']);
+			echo ($vid);
 		}
 	}
 }

@@ -39,7 +39,7 @@ session_start();
                                   File Path\
                               </th>\
                               <th>\
-                                  Edit\
+                                  Edit <span class = \"add\" title=\"Add Entry\" alt=\"Delete Entry\">Add</span>\
                               </th>\
                           </tr>\
                       </thead>\
@@ -49,6 +49,8 @@ session_start();
 \
                   <div id=\"editRow\">\
                   <div id=\"editDupRow\">\
+                  <div id=\"newRow\">\
+                    <input type=\"text\" id=\"cnumber\" placeholder=\"Course Number\"> &nbsp &nbsp <input type=\"text\" id=\"vtitle\" placeholder=\"Video Title\"> &nbsp &nbsp <input type=\"text\" id=\"fpath\" placeholder=\"Filepath\">\
                   </div>\
             </div>";
         $(function() {
@@ -60,7 +62,6 @@ session_start();
 
             //update index for current videoid
             index = findIndex(VID);
-            alert(VID);
 
             //fetch row and session data and populate
             populateRow(index, false);
@@ -78,7 +79,20 @@ session_start();
             var FP = $("#FP" + index).val();
             console.log(CN + ", " + VT + ", " + FP);
 
-            //TODO: write to DB
+            //Check for duplicate entry before adding
+            isValid = true;
+
+            for($i = 0; $i < data.length; $i++){
+
+             
+              if(data[$i][1] == CN && data[$i][3] == FP){
+                isValid = false;
+              }
+            }
+
+            //if no existing entry OR updating video title so that it is the same cn and fp as the entry it is updating, it is still valid so update
+            if(isValid || (CN == data[index][1] && FP == data[index][3])){
+
               var dataObject = {
                 type: "updateCourse",
                 ID: data[index][0],
@@ -108,12 +122,24 @@ session_start();
                 }
 
               });
+
+            }else{
+              alert("There is an existing entry for this video under " + CN + ". Please add the necessary sessions under that entry instead.");
+            }
           });
+
+
+           //Duplicate video entry [save course number, video title, filepath]
+          $("body").on("click","#videos .add", function(e) {
+
+            //launch dialog
+            $( "#newRow" ).dialog( "open" );
+
+          });
+
 
           //Duplicate video entry [save course number, video title, filepath]
           $("body").on("click","#videos .duplicateEntry", function(e) {
-            //TODO: duplicate entry in local array
-
             //get videoID
             var VID = $(this).closest('tr').find('td:first').text();
             console.log(VID);
@@ -431,6 +457,9 @@ session_start();
             $('#videos > tbody:last').append('<tr><td class="classEntry">' + value[0] + '</td><td class="classEntry">' + value[1] + '</td><td class="classEntry">' + value[2] + '</td><td class="classEntry">' + value[3] + '</td><td> <center><span class = "delete" title="Delete Entry" alt="Delete Entry">X</span><br /><div id="spacer"></div> <span class="duplicateEntry"><img src="../img/copy.png" title="Duplicate Entry" alt="Duplicate Entry" height="18" width="18"></span></center></tr>');
           });
 
+          //Finally, append add field
+          $('#videos > tbody:last').append
+
         }
         function populateRow(index, duplicate) {
 
@@ -715,6 +744,88 @@ if($postData) {
                 },
                 "Cancel": function() {
                   $( "#editDupRow" ).dialog( "close" );
+                },
+              }
+          });
+
+          $( "#newRow" ).dialog({
+              title: 'Add new Video Row',
+              autoOpen: false,
+              resizable: true,
+              height: 'auto',
+              width: 'auto',
+              show: { effect: 'drop', direction: "up" },
+              modal: true,
+              draggable: true,
+              buttons: {
+                "Save": function() {
+                  console.log($("#cnumber").val() + $("#vtitle").val() + $("#fpath").val());
+
+                  var CN = $("#cnumber").val();
+                  var FP = $("#fpath").val()
+
+                  isValid = true;
+                   for($i = 0; $i < data.length; $i++){
+             
+                      if(data[$i][1] == CN && data[$i][3] == FP){
+                        isValid = false;
+                      }
+                    }
+
+                //if no existing entry
+                if(isValid){
+
+                      var dataObject = {
+                        type: "addVideo",
+                        vidData: [$("#cnumber").val(), $("#vtitle").val(), $("#fpath").val()]
+                      };
+
+
+                       $.ajax({
+                          type: "POST",
+                          url: "editRecords.php",
+                          cache: false,
+                          data: dataObject,
+                        }).done(function(id) {
+                           if($.isNumeric( id )){  
+                             //on success, return vid
+                            var VID = id;//get new vid!
+                            console.log(VID);
+
+                            //add to local array
+                            data.push([VID, $("#cnumber").val(), $("#vtitle").val(), $("#fpath").val(), []]);
+
+                            //find what the index is for videoid
+                            index = findIndex(VID);
+
+                            $("#videos > tbody").html("");
+                            populateTable();
+
+                            //fetch row and session data and populate
+                            populateRow(index, false);
+
+                            //launch dialogs
+                            $("#cnumber").val("");
+                            $("#vtitle").val("");
+                            $("#fpath").val("");
+                            $( "#newRow" ).dialog( "close" );
+                            $( "#editRow" ).dialog( "open" );
+                        }else{
+                          alert("Entry could not be deleted!");
+                          console.log("Error: ", status);
+                        }
+
+                    });
+                    }else{
+                      alert("There is an existing entry for this video under " + CN + ". Please add the necessary sessions under that entry instead.");
+                    }
+                    
+                  },
+                "Cancel": function() {
+                  $("#cnumber").val("");
+                  $("#vtitle").val("");
+                  $("#fpath").val("");
+                  $( "#newRow" ).dialog( "close" );
                 },
               }
           });
