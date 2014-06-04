@@ -306,7 +306,6 @@ session_start();
             }else if($('#dateTmp' + thisIndex + '1').val() == "" || $('#timeTmp' + thisIndex + '1').val() == "" || $('#dateTmp' + thisIndex + '2').val() == "" || $('#timeTmp' + thisIndex + '2').val() == ""){
               alert("One or more fields are empty. Please adjust accordingly.");
             }else{
-              //TODO: Insert record into DB and update data array
 
               var dataObject = {
                 type: "addSession",
@@ -350,7 +349,6 @@ session_start();
 
           //save edits to current session
           $("body").on("click","#editRowData .save", function() {
-            //TODO: Get values, validate time objects
             //this index
             var thisIndex = $(this).closest('tr').index();
 
