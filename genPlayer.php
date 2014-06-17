@@ -82,6 +82,7 @@ function getVideoData($thisCourse) {
 									 className: 'postad',
 								}
 								}";
+
 						$videoList[$videoCount]['title'] = ($videoCount + 1).'. '.$videoData[$i][2];
 						$videoList[$videoCount]['link'] = 'javascript:projekktor(\'player_a\').setActiveItem('.($videoCount + 1).')';
 						$videoCount++;
@@ -146,7 +147,7 @@ if ($enabled) {
 							plugin_display: {
 							staticControls: false,
 							displayPlayingClick: function() {
-								alert("Display Clicked, tracked that!")
+								//alert("Display Clicked, tracked that!")
 							}
 							}            
 						}
@@ -180,8 +181,8 @@ if ($enabled) {
     <div id="copyright">
         <h4>Copyright Compliance Statement</h4>
         <p>This video is available for time-limited access in compliance with the copyright 
-        procedures and policies of Southern Adventist University.  This display falls within educational fair use 
-        (17 USC § 107) and/or the TEACH Act (H.R.2215).</p>
+        procedures and policies of Southern Adventist University.<br />
+        This display falls within educational fair use (17 USC § 107) and/or the TEACH Act (H.R.2215).</p>
         
         <h4>Fair Use</h4>
         <a href="http://www.law.cornell.edu/uscode/text/17/107?quicktabs_8=1#quicktabs-8" target="_blank">http://www.law.cornell.edu/uscode/text/17/107?quicktabs_8=1#quicktabs-8</a>
@@ -204,7 +205,9 @@ if ($enabled) {
 	?>
     <div id="login">
         <h2>No Video Scheduled</h2>
-        <p>There is currently no video scheduled for your course.  If you believe this is an error, double check you have entered the access information correctly.  If there is still an error, please contact your instructor.</p>
+        <p>There is currently no video scheduled for your course.  If you believe this is an error,<br />
+         double check you have entered the access information correctly.  If there is still an error,<br />
+         please contact your instructor.</p>
         <p><strong>Course:</strong> <?=$_POST['course']?></p>
         <h2>
         Please enter the password to access the video resource.

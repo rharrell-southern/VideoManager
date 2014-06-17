@@ -6,43 +6,28 @@
 	  <path>videos/lost_children.mp4</path>
 	  <sessions>
 		<session>
-			<starttime>2013-03-26 8:00:00EDT</starttime>
-			<endtime>2013-03-26 10:00:00EDT</endtime>
+			<starttime>2013-03-26 8:00:00</starttime>
+			<endtime>2013-03-26 10:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-03-26 19:00:00EDT</starttime>
-			<endtime>2013-03-26 21:30:00EDT</endtime>
+			<starttime>2013-03-26 19:00:00</starttime>
+			<endtime>2013-03-26 21:30:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-03-27 8:00:00EDT</starttime>
-			<endtime>2013-03-27 10:30:00EDT</endtime>
+			<starttime>2013-03-27 8:00:00</starttime>
+			<endtime>2013-03-27 10:30:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-03-27 19:00:00EDT</starttime>
-			<endtime>2013-03-27 21:30:00EDT</endtime>
+			<starttime>2013-03-27 19:00:00</starttime>
+			<endtime>2013-03-27 21:30:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-03-28 11:00:00EDT</starttime>
-			<endtime>2013-03-28 13:30:00EDT</endtime>
+			<starttime>2013-03-28 11:00:00</starttime>
+			<endtime>2013-03-28 13:30:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-03-29 13:00:00EDT</starttime>
-			<endtime>2013-03-29 15:30:00EDT</endtime>
-		</session>
-	  </sessions>
-	</video>
-	<video>
-	  <course>EDUC531</course>
-	  <title>Lost Children of Rockdale County</title>
-	  <path>videos/lost_children.mp4</path>
-	  <sessions>
-		<session>
-			<starttime>2013-03-26 8:00:00EST</starttime>
-			<endtime>2013-03-26 20:00:00EST</endtime>
-		</session>
-		<session>
-			<starttime>2013-04-08 8:00:00EST</starttime>
-			<endtime>2013-04-08 20:00:00EST</endtime>
+			<starttime>2013-03-29 13:00:00</starttime>
+			<endtime>2013-03-29 15:30:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -52,12 +37,12 @@
 	  <path>videos/lost_children.mp4</path>
 	  <sessions>
 		<session>
-			<starttime>2013-03-26 8:00:00EST</starttime>
-			<endtime>2013-03-26 20:00:00EST</endtime>
+			<starttime>2013-03-26 8:00:00</starttime>
+			<endtime>2013-03-26 20:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-04-08 8:00:00EST</starttime>
-			<endtime>2013-04-08 20:00:00EST</endtime>
+			<starttime>2013-04-08 8:00:00</starttime>
+			<endtime>2013-04-08 20:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -67,32 +52,32 @@
 	  <path>/courses/SOCW_650/Chung.mp4</path>
 	  <sessions>
 		<session>
-			<starttime>2013-04-10 19:00:00EST</starttime>
-			<endtime>2013-04-10 21:00:00EST</endtime>
+			<starttime>2013-04-10 19:00:00</starttime>
+			<endtime>2013-04-10 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-04-11 18:00:00EST</starttime>
-			<endtime>2013-04-11 20:00:00EST</endtime>
+			<starttime>2013-04-11 18:00:00</starttime>
+			<endtime>2013-04-11 20:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-04-14 16:45:00EDT</starttime>
-			<endtime>2013-04-14 20:00:00EDT</endtime>
+			<starttime>2013-04-14 16:45:00</starttime>
+			<endtime>2013-04-14 20:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-04-15 18:00:00EDT</starttime>
-			<endtime>2013-04-15 20:00:00EDT</endtime>
+			<starttime>2013-04-15 18:00:00</starttime>
+			<endtime>2013-04-15 20:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-04-17 20:00:00EDT</starttime>
-			<endtime>2013-04-17 22:00:00EDT</endtime>
+			<starttime>2013-04-17 20:00:00</starttime>
+			<endtime>2013-04-17 22:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-04-19 21:00:00EDT</starttime>
-			<endtime>2013-04-19 23:00:00EDT</endtime>
+			<starttime>2013-04-19 21:00:00</starttime>
+			<endtime>2013-04-19 23:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-04-20 21:00:00EDT</starttime>
-			<endtime>2013-04-20 23:00:00EDT</endtime>
+			<starttime>2013-04-20 21:00:00</starttime>
+			<endtime>2013-04-20 23:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -102,8 +87,8 @@
 	  <path>/courses/LTCA_431/videos/lburk_5_17_11.mp4</path>
 	  <sessions>
 		<session>
-			<starttime>2013-01-01 8:00:00EST</starttime>
-			<endtime>2099-03-26 20:00:00EST</endtime>
+			<starttime>2013-01-01 8:00:00</starttime>
+			<endtime>2099-03-26 20:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -113,20 +98,20 @@
 	  <path>/courses/NRSG_497/Understanding%20Research.mp4</path>
 	  <sessions>
 		<session>
-			<starttime>2013-05-07 19:00:00EDT</starttime>
-			<endtime>2013-05-07 22:00:00EDT</endtime>
+			<starttime>2013-05-07 19:00:00</starttime>
+			<endtime>2013-05-07 22:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-08 19:00:00EDT</starttime>
-			<endtime>2013-05-08 22:00:00EDT</endtime>
+			<starttime>2013-05-08 19:00:00</starttime>
+			<endtime>2013-05-08 22:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-09 8:00:00EDT</starttime>
-			<endtime>2013-05-09 11:00:00EDT</endtime>
+			<starttime>2013-05-09 8:00:00</starttime>
+			<endtime>2013-05-09 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-13 19:00:00EDT</starttime>
-			<endtime>2013-05-13 22:00:00EDT</endtime>
+			<starttime>2013-05-13 19:00:00</starttime>
+			<endtime>2013-05-13 22:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -136,24 +121,24 @@
 	  <path>/courses/NRSG_497/Week%202/RESEARCH_ETHICS.mp4</path>
 	  <sessions>
 		<session>
-			<starttime>2013-05-14 17:00:00EDT</starttime>
-			<endtime>2013-05-14 21:00:00EDT</endtime>
+			<starttime>2013-05-14 17:00:00</starttime>
+			<endtime>2013-05-14 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-15 8:00:00EDT</starttime>
-			<endtime>2013-05-15 11:00:00EDT</endtime>
+			<starttime>2013-05-15 8:00:00</starttime>
+			<endtime>2013-05-15 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-16 9:30:00EDT</starttime>
-			<endtime>2013-05-16 13:00:00EDT</endtime>
+			<starttime>2013-05-16 9:30:00</starttime>
+			<endtime>2013-05-16 13:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-16 17:00:00EDT</starttime>
-			<endtime>2013-05-16 21:00:00EDT</endtime>
+			<starttime>2013-05-16 17:00:00</starttime>
+			<endtime>2013-05-16 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-19 17:00:00EDT</starttime>
-			<endtime>2013-05-19 21:00:00EDT</endtime>
+			<starttime>2013-05-19 17:00:00</starttime>
+			<endtime>2013-05-19 21:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -163,44 +148,44 @@
 	  <path>/courses/NRSG_497/Week 3/Research Skills.mp4</path>
 	  <sessions>
 		<session>
-			<starttime>2013-05-14 17:00:00EDT</starttime>
-			<endtime>2013-05-14 21:00:00EDT</endtime>
+			<starttime>2013-05-14 17:00:00</starttime>
+			<endtime>2013-05-14 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-15 8:00:00EDT</starttime>
-			<endtime>2013-05-15 11:00:00EDT</endtime>
+			<starttime>2013-05-15 8:00:00</starttime>
+			<endtime>2013-05-15 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-16 9:30:00EDT</starttime>
-			<endtime>2013-05-16 13:00:00EDT</endtime>
+			<starttime>2013-05-16 9:30:00</starttime>
+			<endtime>2013-05-16 13:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-16 17:00:00EDT</starttime>
-			<endtime>2013-05-16 21:00:00EDT</endtime>
+			<starttime>2013-05-16 17:00:00</starttime>
+			<endtime>2013-05-16 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-19 17:00:00EDT</starttime>
-			<endtime>2013-05-19 21:00:00EDT</endtime>
+			<starttime>2013-05-19 17:00:00</starttime>
+			<endtime>2013-05-19 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-21 19:00:00EDT</starttime>
-			<endtime>2013-05-21 21:00:00EDT</endtime>
+			<starttime>2013-05-21 19:00:00</starttime>
+			<endtime>2013-05-21 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-22 17:00:00EDT</starttime>
-			<endtime>2013-05-22 21:00:00EDT</endtime>
+			<starttime>2013-05-22 17:00:00</starttime>
+			<endtime>2013-05-22 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-23 8:00:00EDT</starttime>
-			<endtime>2013-05-23 11:00:00EDT</endtime>
+			<starttime>2013-05-23 8:00:00</starttime>
+			<endtime>2013-05-23 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-23 17:00:00EDT</starttime>
-			<endtime>2013-05-23 21:00:00EDT</endtime>
+			<starttime>2013-05-23 17:00:00</starttime>
+			<endtime>2013-05-23 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-26 19:00:00EDT</starttime>
-			<endtime>2013-05-26 21:00:00EDT</endtime>
+			<starttime>2013-05-26 19:00:00</starttime>
+			<endtime>2013-05-26 21:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -210,40 +195,40 @@
 	  <path>/courses/NRSG_497/Week_4/Quantitative.mp4</path>
 	  <sessions>
 		<session>
-			<starttime>2013-05-21 19:00:00EDT</starttime>
-			<endtime>2013-05-21 21:00:00EDT</endtime>
+			<starttime>2013-05-21 19:00:00</starttime>
+			<endtime>2013-05-21 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-22 17:00:00EDT</starttime>
-			<endtime>2013-05-22 21:00:00EDT</endtime>
+			<starttime>2013-05-22 17:00:00</starttime>
+			<endtime>2013-05-22 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-23 8:00:00EDT</starttime>
-			<endtime>2013-05-23 11:00:00EDT</endtime>
+			<starttime>2013-05-23 8:00:00</starttime>
+			<endtime>2013-05-23 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-23 17:00:00EDT</starttime>
-			<endtime>2013-05-23 21:00:00EDT</endtime>
+			<starttime>2013-05-23 17:00:00</starttime>
+			<endtime>2013-05-23 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-26 19:00:00EDT</starttime>
-			<endtime>2013-05-26 21:00:00EDT</endtime>
+			<starttime>2013-05-26 19:00:00</starttime>
+			<endtime>2013-05-26 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-28 19:00:00EDT</starttime>
-			<endtime>2013-05-28 21:00:00EDT</endtime>
+			<starttime>2013-05-28 19:00:00</starttime>
+			<endtime>2013-05-28 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-29 9:00:00EDT</starttime>
-			<endtime>2013-05-29 11:00:00EDT</endtime>
+			<starttime>2013-05-29 9:00:00</starttime>
+			<endtime>2013-05-29 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-05-30 17:00:00EDT</starttime>
-			<endtime>2013-05-30 21:00:00EDT</endtime>
+			<starttime>2013-05-30 17:00:00</starttime>
+			<endtime>2013-05-30 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-02 19:00:00EDT</starttime>
-			<endtime>2013-06-02 21:00:00EDT</endtime>
+			<starttime>2013-06-02 19:00:00</starttime>
+			<endtime>2013-06-02 21:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -253,20 +238,20 @@
 	  <path>/courses/NRSG_497/Week_6/Qualitative.mp4</path>
 	  <sessions>
 		<session>
-			<starttime>2013-06-04 19:00:00EDT</starttime>
-			<endtime>2013-06-04 21:00:00EDT</endtime>
+			<starttime>2013-06-04 19:00:00</starttime>
+			<endtime>2013-06-04 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-05 9:00:00EDT</starttime>
-			<endtime>2013-06-05 11:00:00EDT</endtime>
+			<starttime>2013-06-05 9:00:00</starttime>
+			<endtime>2013-06-05 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-06 9:00:00EDT</starttime>
-			<endtime>2013-06-06 11:00:00EDT</endtime>
+			<starttime>2013-06-06 9:00:00</starttime>
+			<endtime>2013-06-06 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-09 19:00:00EDT</starttime>
-			<endtime>2013-06-09 21:00:00EDT</endtime>
+			<starttime>2013-06-09 19:00:00</starttime>
+			<endtime>2013-06-09 21:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -276,20 +261,20 @@
 	  <path>/courses/NRSG_497/Week_11/AvoidingPlagiarism.m4v</path>
 	  <sessions>
 		<session>
-			<starttime>2013-06-19 17:00:00EDT</starttime>
-			<endtime>2013-06-19 21:00:00EDT</endtime>
+			<starttime>2013-06-19 17:00:00</starttime>
+			<endtime>2013-06-19 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-20 8:00:00EDT</starttime>
-			<endtime>2013-06-20 11:00:00EDT</endtime>
+			<starttime>2013-06-20 8:00:00</starttime>
+			<endtime>2013-06-20 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-21 17:00:00EDT</starttime>
-			<endtime>2013-06-21 21:00:00EDT</endtime>
+			<starttime>2013-06-21 17:00:00</starttime>
+			<endtime>2013-06-21 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-23 17:00:00EDT</starttime>
-			<endtime>2013-06-23 21:00:00EDT</endtime>
+			<starttime>2013-06-23 17:00:00</starttime>
+			<endtime>2013-06-23 21:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -299,20 +284,20 @@
 	  <path>/courses/NRSG_497/Week_10/RESEARCHING_HEALTH.m4v</path>
 	  <sessions>
 		<session>
-			<starttime>2013-06-19 17:00:00EDT</starttime>
-			<endtime>2013-06-19 21:00:00EDT</endtime>
+			<starttime>2013-06-19 17:00:00</starttime>
+			<endtime>2013-06-19 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-20 8:00:00EDT</starttime>
-			<endtime>2013-06-20 11:00:00EDT</endtime>
+			<starttime>2013-06-20 8:00:00</starttime>
+			<endtime>2013-06-20 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-21 17:00:00EDT</starttime>
-			<endtime>2013-06-21 21:00:00EDT</endtime>
+			<starttime>2013-06-21 17:00:00</starttime>
+			<endtime>2013-06-21 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-23 17:00:00EDT</starttime>
-			<endtime>2013-06-23 21:00:00EDT</endtime>
+			<starttime>2013-06-23 17:00:00</starttime>
+			<endtime>2013-06-23 21:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -322,20 +307,20 @@
 	  <path>/courses/NRSG_497/Week_12/RESEARCH-TheExperiment.m4v</path>
 	  <sessions>
 		<session>
-			<starttime>2013-06-25 17:00:00EDT</starttime>
-			<endtime>2013-06-25 21:00:00EDT</endtime>
+			<starttime>2013-06-25 17:00:00</starttime>
+			<endtime>2013-06-25 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-26 8:00:00EDT</starttime>
-			<endtime>2013-06-26 11:00:00EDT</endtime>
+			<starttime>2013-06-26 8:00:00</starttime>
+			<endtime>2013-06-26 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-27 17:00:00EDT</starttime>
-			<endtime>2013-06-27 21:00:00EDT</endtime>
+			<starttime>2013-06-27 17:00:00</starttime>
+			<endtime>2013-06-27 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-06-30 17:00:00EDT</starttime>
-			<endtime>2013-06-30 21:00:00EDT</endtime>
+			<starttime>2013-06-30 17:00:00</starttime>
+			<endtime>2013-06-30 21:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>
@@ -345,20 +330,20 @@
 	  <path>/courses/NRSG_497/Week_13/Presenting-Comm.m4v</path>
 	  <sessions>
 		<session>
-			<starttime>2013-07-02 17:00:00EDT</starttime>
-			<endtime>2013-07-02 21:00:00EDT</endtime>
+			<starttime>2013-07-02 17:00:00</starttime>
+			<endtime>2013-07-02 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-07-03 8:00:00EDT</starttime>
-			<endtime>2013-07-03 11:00:00EDT</endtime>
+			<starttime>2013-07-03 8:00:00</starttime>
+			<endtime>2013-07-03 11:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-07-04 17:00:00EDT</starttime>
-			<endtime>2013-07-04 21:00:00EDT</endtime>
+			<starttime>2013-07-04 17:00:00</starttime>
+			<endtime>2013-07-04 21:00:00</endtime>
 		</session>
 		<session>
-			<starttime>2013-07-07 17:00:00EDT</starttime>
-			<endtime>2013-07-07 21:00:00EDT</endtime>
+			<starttime>2013-07-07 17:00:00</starttime>
+			<endtime>2013-07-07 21:00:00</endtime>
 		</session>
 	  </sessions>
 	</video>

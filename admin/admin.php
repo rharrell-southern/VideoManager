@@ -837,7 +837,7 @@ if($postData) {
 
           //populate table and make sortable
           populateTable();
-          $("#videos").tablesorter(); 
+          $("#videos").tablesorter({headers: {4: { sorter: false}}});
 
         }else{
           $("#container").html(" <div id='login'>\
